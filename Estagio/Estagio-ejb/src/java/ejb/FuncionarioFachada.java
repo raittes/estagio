@@ -3,6 +3,7 @@ package ejb;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.FlushModeType;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -19,5 +20,12 @@ public class FuncionarioFachada implements FuncionarioFachadaLocal {
         Query query = em.createNamedQuery("Funcionarios.findAll");
         return query.getResultList();
     }
+    
+    public List<Funcionarios> getFuncionarioByNome(String nome){
+        Query query = em.createNamedQuery("Funcionarios.findByNome");
+        query.setParameter("nome", nome);
+        return query.getResultList();
+    }
+    
     
 }

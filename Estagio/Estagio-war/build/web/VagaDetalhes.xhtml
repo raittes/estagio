@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Detalhes da Vaga de Estágio</title>
+    </h:head>
+    <h:body>
+        <table>
+        <h:form>
+            <th colspan="2"><h2><h:outputText value="Detalhes da oferta de estágio #{vagasMBean.vaga.id}"/></h2></th>
+            <tr>
+                <td><h:outputText value="Descrição:"/></td>
+                <td><h:outputText value="#{vagasMBean.vaga.descricao}"/></td>
+            </tr>
+            <tr>
+                <td><h:outputText value="Salário:"/></td>
+                <td><h:outputText value="R$ #{vagasMBean.vaga.salario}"/><br/></td>
+            </tr>
+            <tr>
+                <td><h:outputText value="Curso:"/></td>
+                <td><h:outputText value="#{vagasMBean.vaga.curso}"/><br/></td>
+            </tr>
+        </h:form>
+        </table>
+    </h:body>
+</html>
+

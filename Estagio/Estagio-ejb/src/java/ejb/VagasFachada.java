@@ -27,11 +27,24 @@ public class VagasFachada implements VagasFachadaLocal {
     }
     public List<Vagas> getListaVagasByFuncionario(int id){
         Query query = em.createNamedQuery("Vagas.findByIdfuncionario");
-        query.setParameter("idFuncionario", id);
+        query.setParameter("idfuncionario", id);
         return query.getResultList();
+    }
+    
+    public Object getVagaById(int id){
+        Query query = em.createNamedQuery("Vagas.findById");
+        query.setParameter("id", id);
+        return query.getSingleResult();
     }
 
     public void persist(Object object) {
         em.persist(object);
     }
+    public void update(Object object) {
+        em.merge(object);
+    }
+    public void remove(Object object) { 
+        em.remove(object);
+    }    
+    
 }

@@ -12,7 +12,8 @@
         <f:view>
             <h:form>
                 <h1><h:outputText value="Lista de Vagas por Funcionario"/></h1>
-                <h:dataTable value="#{vagasMBean.listaVagasByFuncionario(1)}" var="item">
+                
+                <h:dataTable value="#{vagasMBean.getListaVagasByFuncionario(1)}" var="item">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Id"/>
@@ -25,10 +26,22 @@
                         </f:facet>
                         <h:outputText value="#{item.descricao}"/>
                     </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="EDITAR"/>
+                        </f:facet>
+                        <h:commandLink action="#{vagasMBean.editar(item.id)}" value="Editar #{item.id}"/>
+                    </h:column>
                 </h:dataTable>
+                <h:commandButton id="novaVaga" action="#{vagasMBean.novaVaga()}" value="Criar Nova Oferta"/>
             </h:form>
 
         </f:view>
+        
+        
+        
+        
+        
         
         
     </h:body>

@@ -5,9 +5,12 @@
 package ejb;
 
 import java.io.Serializable;
+import javax.annotation.Generated;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,9 +37,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Vagas.findByEmail", query = "SELECT v FROM Vagas v WHERE v.email = :email"),
     @NamedQuery(name = "Vagas.findByTelefone", query = "SELECT v FROM Vagas v WHERE v.telefone = :telefone"),
     @NamedQuery(name = "Vagas.findByIdfuncionario", query = "SELECT v FROM Vagas v WHERE v.idfuncionario = :idfuncionario")})
+
 public class Vagas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)    
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")

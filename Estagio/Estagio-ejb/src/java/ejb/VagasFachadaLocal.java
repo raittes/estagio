@@ -15,5 +15,9 @@ import javax.ejb.Local;
 public interface VagasFachadaLocal {
     
     public List<Vagas> getListaVagas();
-    public List<Vagas> getListaVagasByFuncionario(int id);
+    public List<Vagas> getListaVagasByFuncionario(int id);    
+    public Object getVagaById(int id);    
+    public void persist(Object o);
+    public void update(Object o);
+    public void remove(Object o);
 }

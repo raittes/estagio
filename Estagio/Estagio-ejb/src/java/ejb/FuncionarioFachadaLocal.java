@@ -7,6 +7,7 @@ import javax.ejb.Local;
 @Local
 public interface FuncionarioFachadaLocal {
     
-    
     List<Funcionarios> getListaFuncionarios();
+    List<Funcionarios> getFuncionarioByNome(String nome);
+    
 }

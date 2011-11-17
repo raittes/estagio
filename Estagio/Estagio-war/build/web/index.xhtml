@@ -28,6 +28,18 @@
                         </f:facet>
                         <h:outputText value="#{item.descricao}"/>
                     </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario"/>
+                        </f:facet>
+                        <h:outputText value="#{item.salario}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Mais Informações"/>
+                        </f:facet>
+                        <h:commandLink action="#{vagasMBean.detalhes(item.id)}" value="Detalhes"/>
+                    </h:column>
                 </h:dataTable>
             </h:form>
 
