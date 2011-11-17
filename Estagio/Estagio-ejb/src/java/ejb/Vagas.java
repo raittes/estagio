@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author grad
+ * @author raittes
  */
 @Entity
 @Table(name = "VAGAS")
@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Vagas.findByDescricao", query = "SELECT v FROM Vagas v WHERE v.descricao = :descricao"),
     @NamedQuery(name = "Vagas.findBySalario", query = "SELECT v FROM Vagas v WHERE v.salario = :salario"),
     @NamedQuery(name = "Vagas.findByEmail", query = "SELECT v FROM Vagas v WHERE v.email = :email"),
-    @NamedQuery(name = "Vagas.findByTelefone", query = "SELECT v FROM Vagas v WHERE v.telefone = :telefone")})
+    @NamedQuery(name = "Vagas.findByTelefone", query = "SELECT v FROM Vagas v WHERE v.telefone = :telefone"),
+    @NamedQuery(name = "Vagas.findByIdfuncionario", query = "SELECT v FROM Vagas v WHERE v.idfuncionario = :idfuncionario")})
 public class Vagas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -55,12 +56,14 @@ public class Vagas implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "SALARIO")
     private Double salario;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 20)
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "TELEFONE")
     private Integer telefone;
+    @Column(name = "IDFUNCIONARIO")
+    private Integer idfuncionario;
 
     public Vagas() {
     }
@@ -131,6 +134,14 @@ public class Vagas implements Serializable {
 
     public void setTelefone(Integer telefone) {
         this.telefone = telefone;
+    }
+
+    public Integer getIdfuncionario() {
+        return idfuncionario;
+    }
+
+    public void setIdfuncionario(Integer idfuncionario) {
+        this.idfuncionario = idfuncionario;
     }
 
     @Override

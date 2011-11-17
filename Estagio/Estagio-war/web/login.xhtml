@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Login Funcionário</title>
+    </h:head>
+    <h:body>
+        <h3>Funcionário - Login</h3>
+        Status: <h:outputText value="#{LoginBean.response}"/>
+                <h:form>
+                    Login:                    
+                    <h:inputText id="login" size="19" maxlength="19"
+                                 value="#{LoginBean.login}" /> <br/>
+                    Senha:
+                    <h:inputText id="senha" size="20" maxlength="20"
+                                 value="#{LoginBean.senha}" />
+                    <br/>
+                    <h:commandButton id="submit" value="Fazer Login" action="#{LoginBean.logar(SistemaBean.checaLogin(LoginBean.login, LoginBean.senha))}" />
+                    <h:commandButton id="cadastrar" value="Cadastrar Usuario" action="cadastrar" />
+                </h:form>
+    </h:body>
+</html>
+
