@@ -8,10 +8,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton id="login" value="Efetuar Login" action="login" />
+            <h:commandButton id="login" value="Área Usuário" action="login" />
         </h:form>
         
-        
+        <center>    
         <f:view>
             <h:form>
                 <h1><h:outputText value="Lista de Estagios"/></h1>
@@ -32,7 +32,7 @@
                         <f:facet name="header">
                             <h:outputText value="Salario"/>
                         </f:facet>
-                        <h:outputText value="#{item.salario}"/>
+                        <h:outputText value="R$ #{item.salario}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -44,6 +44,7 @@
             </h:form>
 
         </f:view>
+        </center>
         
     </h:body>
 </html>

@@ -8,12 +8,30 @@
     </h:head>
     <h:body>
         
-        
         <f:view>
             <h:form>
+                <h:commandButton id="index" action="index" value="Index"/>
+                <h:commandButton id="deslogar" action="#{sessaoMBean.deslogar}" value="Deslogar"/>
+                
+                <table>
+                    <th colspan="2">Informações do Funcionário</th>
+                    <tr>
+                        <td>Id:</td>
+                        <td><h:outputText value="#{sessaoMBean.logado.id}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><h:outputText value="#{sessaoMBean.logado.nome}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Empresa:</td>
+                        <td><h:outputText value="#{sessaoMBean.logado.empresa}"/></td>
+                    </tr>                    
+                </table>
+                <center>
                 <h1><h:outputText value="Lista de Vagas por Funcionario"/></h1>
                 
-                <h:dataTable value="#{vagasMBean.getListaVagasByFuncionario(1)}" var="item">
+                <h:dataTable value="#{vagasMBean.getListaVagasByFuncionario(sessaoMBean.logado.getId())}" var="item">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Id"/>
@@ -33,9 +51,10 @@
                         <h:commandLink action="#{vagasMBean.editar(item.id)}" value="Editar #{item.id}"/>
                     </h:column>
                 </h:dataTable>
-                <h:commandButton id="novaVaga" action="#{vagasMBean.novaVaga()}" value="Criar Nova Oferta"/>
+                <h:commandButton id="novaVaga" action="#{vagasMBean.novaVaga()}" value="Criar Nova Oferta"/>                
+                </center>
             </h:form>
-
+        
         </f:view>
         
         

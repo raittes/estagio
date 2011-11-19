@@ -8,24 +8,25 @@
     </h:head>
     <h:body>
         <h2>Funcionário - Login</h2>
-        Status: <h:outputText value="#{LoginBean.response}"/>
+        Status: <h:outputText value="#{sessaoMBean.response}"/>
                 <h:form>
                     Login:                    
                     <h:inputText id="login" size="19" maxlength="19"
                                  value="#{LoginBean.login}" /> <br/>
                     Senha:
-                    <h:inputText id="senha" size="20" maxlength="20"
+                    <h:inputSecret id="senha" size="20" maxlength="20"
                                  value="#{LoginBean.senha}" />
                     <br/>
-                    <h:commandButton id="submit" value="Fazer Login" action="#{LoginBean.logar(SistemaBean.checaLogin(LoginBean.login, LoginBean.senha))}" />
+                    <h:commandButton id="logar" value="Fazer Login" action="#{sessaoMBean.logar(funcionariosMBean.checaLogin(LoginBean.login, LoginBean.senha))}" />
                     <h:commandButton id="cadastrar" value="Cadastrar Usuario" action="cadastrar" />
+                    <br/><h:commandButton id="voltar" value="Voltar" action="index" />
                 </h:form>
         
         <br/><br/>
         <f:view>
             <h:form>
                 <h3><h:outputText value="Lista de Funcionarios Cadastrados"/></h3>
-                <h:dataTable value="#{funcionariosMBean.listaFuncionarios}" var="item">
+                <h:dataTable value="#{funcionariosMBean.getListaFuncionarios()}" var="item">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Id"/>

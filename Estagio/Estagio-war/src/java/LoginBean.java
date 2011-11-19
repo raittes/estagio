@@ -7,14 +7,12 @@ import javax.faces.bean.SessionScoped;
 public class LoginBean {
     
     private UsuarioBean usuario;
-    private List resultado;
     private String login;
-    private String senha;  
-    private Long   codigo;
+    private String senha;      
+    private String empresa;
     
     public LoginBean() {
         usuario = null;
-        codigo = null;
     }
     public String logar(UsuarioBean user){
         if(user==null)
@@ -28,7 +26,6 @@ public class LoginBean {
         this.usuario=null;
         this.login=null;
         this.senha=null;
-        this.codigo=null;
         return "index";
     }
     public UsuarioBean getUsuario() {
@@ -49,20 +46,6 @@ public class LoginBean {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    public List getResultado() {
-        return resultado;
-    }
-    public void setResultado(List resultado) {
-        this.resultado = resultado;
-    }
-
-    public Long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
     
     public String getResponse(){
         if(usuario == null)
@@ -72,6 +55,14 @@ public class LoginBean {
     }
     public LoginBean getThis(){
         return this;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
     
 }

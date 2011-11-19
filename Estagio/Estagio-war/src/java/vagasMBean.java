@@ -49,13 +49,17 @@ public class vagasMBean {
         return "VagaDetalhes";
     }
     public void salvar(){
+        // gambiarra, pq AutoIncrement NAO FUNCIONA
+        //vaga.setId(this.getListaVagas().size());
         vagaFachada.update(vaga);        
     }
-    public void remover(){
+    public String remover(){
         vagaFachada.remove(vaga);
+        return "removida";
     }
-    public void criar(){
+    public String crie(){
         vagaFachada.persist(vaga);
+        return "logado";
     }
     public String novaVaga(){
         vaga = new Vagas();

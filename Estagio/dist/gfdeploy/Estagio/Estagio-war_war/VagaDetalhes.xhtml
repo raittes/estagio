@@ -6,8 +6,9 @@
         <title>Detalhes da Vaga de Estágio</title>
     </h:head>
     <h:body>
-        <table>
+        
         <h:form>
+            <table>
             <th colspan="2"><h2><h:outputText value="Detalhes da oferta de estágio #{vagasMBean.vaga.id}"/></h2></th>
             <tr>
                 <td><h:outputText value="Descrição:"/></td>
@@ -21,8 +22,30 @@
                 <td><h:outputText value="Curso:"/></td>
                 <td><h:outputText value="#{vagasMBean.vaga.curso}"/><br/></td>
             </tr>
+            <tr><td><br/></td></tr>
+            <tr><th colspan="2">Informações do Local</th></tr>
+            <tr>
+                <td><h:outputText value="Empresa:"/></td>
+                <td><h:outputText value="#{vagasMBean.vaga.empresa}"/><br/></td>
+            </tr>
+            <tr>
+                <td><h:outputText value="Cidade:"/></td>
+                <td><h:outputText value="#{vagasMBean.vaga.cidade}"/><br/></td>
+            </tr>
+            <tr><td><br/></td></tr>
+            <tr><th colspan="2">Informações de Contato</th></tr>
+            <tr>
+                <td><h:outputText value="Email:"/></td>
+                <td><h:outputText value="#{vagasMBean.vaga.email}"/><br/></td>
+            </tr>
+            <tr>
+                <td><h:outputText value="Telefone:"/></td>
+                <td><h:outputText value="#{vagasMBean.vaga.telefone}"/><br/></td>
+            </tr>
+            </table>
+            <h:commandButton id="voltar" action="index" value="Voltar"/>
         </h:form>
-        </table>
+        
     </h:body>
 </html>
 

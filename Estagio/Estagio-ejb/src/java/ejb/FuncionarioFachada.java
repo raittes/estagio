@@ -12,20 +12,39 @@ public class FuncionarioFachada implements FuncionarioFachadaLocal {
     @PersistenceContext(unitName = "Estagio-ejbPU")
     private EntityManager em;
 
-    public void persist(Object object) {
-        em.persist(object);
-    }
-
-    public List<Funcionarios> getListaFuncionarios(){
+        public List<Funcionarios> getListaFuncionarios(){
+            em.flush();
         Query query = em.createNamedQuery("Funcionarios.findAll");
         return query.getResultList();
     }
     
-    public List<Funcionarios> getFuncionarioByNome(String nome){
+    public Funcionarios getFuncionarioByNome(String nome){
+            em.flush();
         Query query = em.createNamedQuery("Funcionarios.findByNome");
         query.setParameter("nome", nome);
-        return query.getResultList();
+        Funcionarios resultado;
+        try{
+            resultado = (Funcionarios) query.getSingleResult();            
+        }catch(Exception e){
+            resultado = null;
+        }
+        return resultado;
     }
-    
+    public Funcionarios checaLogin(String nome, String senha){
+            em.flush();
+        Funcionarios logando = this.getFuncionarioByNome(nome);
+        if(logando!= null){
+            if(senha.equals(logando.getSenha()))
+                return logando;
+            else
+                return null;
+        }
+        else           
+            return null;
+    }
+    public void persist(Funcionarios object) {
+        em.flush();
+        em.persist(object);               
+    }   
     
 }

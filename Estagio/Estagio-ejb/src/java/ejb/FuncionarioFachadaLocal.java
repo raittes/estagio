@@ -8,6 +8,7 @@ import javax.ejb.Local;
 public interface FuncionarioFachadaLocal {
     
     List<Funcionarios> getListaFuncionarios();
-    List<Funcionarios> getFuncionarioByNome(String nome);
-    
+    Funcionarios getFuncionarioByNome(String nome);
+    Funcionarios checaLogin(java.lang.String nome, java.lang.String senha);
+    void persist(Funcionarios func);    
 }

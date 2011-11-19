@@ -9,10 +9,18 @@
     <h:body>
         <h:form>
             
-            
             <table border="0">
                 <tr>
-                    <th colspan="2"><h2>Editar Oferta de Estágio - Id <h:outputText value="#{vagasMBean.vaga.id}"/></h2></th>
+                    <c:if test="#{vagasMBean.criar}">
+                        <th colspan="2"><h2>CRIAR NOVA VAGA - Id 
+
+                                <h:outputText value="#{vagasMBean.getListaVagas().size()}"/></h2></th>
+                                
+                    </c:if>
+                    <c:if test="#{!vagasMBean.criar}">
+                        <th colspan="2"><h2>Editar Oferta de Estágio - Id <h:outputText value="#{vagasMBean.vaga.id}"/></h2></th>
+                    </c:if>
+                    
                 </tr>
                 <tr>
                     <td><h:outputText value="Descrição"/></td>
@@ -26,7 +34,7 @@
                     <td><h:outputText value="Salário"/></td>
                     <td><h:inputText id="salario" value="#{vagasMBean.vaga.salario}"/></td>
                 </tr>
-                <tr><th colspan="2">Informações do Local:</th></tr>
+                <tr><th colspan="2">Informações do Local</th></tr>
                 <tr>
                     <td><h:outputText value="Empresa"/></td>
                     <td><h:inputText id="empresa" value="#{vagasMBean.vaga.empresa}"/></td>
@@ -35,7 +43,7 @@
                     <td><h:outputText value="Cidade"/></td>
                     <td><h:inputText id="cidade" value="#{vagasMBean.vaga.cidade}"/></td>
                 </tr>
-                <tr><th colspan="2">Informações de Contato:</th></tr>
+                <tr><th colspan="2">Informações de Contato</th></tr>
                 <tr>
                     <td><h:outputText value="Email"/></td>
                     <td><h:inputText id="email" value="#{vagasMBean.vaga.email}"/></td>
@@ -43,17 +51,21 @@
                 <tr>
                     <td><h:outputText value="Telefone"/></td>
                     <td><h:inputText id="telefone" value="#{vagasMBean.vaga.telefone}"/></td>
-            </tr>              
+                </tr>              
             </table>
-
-            <h:commandButton id="voltar" action="logado" value="Voltar"/>
+            
+                       
             <c:if test="#{vagasMBean.criar}">
-                <h:commandButton id="criar" action="#{vagasMBean.criar()}" value="Criar"/>
+                <h:outputText value="#{vagasMBean.vaga.setIdfuncionario(sessaoMBean.logado.id)}"/>
+                <h:outputText value="[ Id Funcionario: #{sessaoMBean.logado.id} ]"/><br/>
+                <h:commandButton id="criar" action="#{vagasMBean.crie}" value="Criar"/>
             </c:if>
             <c:if test="#{!vagasMBean.criar}">
+                <h:outputText value="[ Id Funcionario: #{vagasMBean.vaga.idfuncionario} ]"/><br/>
                 <h:commandButton id="salvar" action="#{vagasMBean.salvar()}" value="Salvar"/>
                 <h:commandButton id="remover" action="#{vagasMBean.remover()}" value="Remover"/>
             </c:if>
+            <br/><br/><h:commandButton id="voltar" action="logado" value="Voltar"/>
         </h:form>
     </h:body>
 </html>

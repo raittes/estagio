@@ -40,10 +40,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class Vagas implements Serializable {
     private static final long serialVersionUID = 1L;
+    // Column 'ID'  cannot accept a NULL value. bug?????
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)    
+    @GeneratedValue(strategy = GenerationType.AUTO)    
     @Basic(optional = false)
-    @NotNull
+//    @NotNull
     @Column(name = "ID")
     private Integer id;
     @Size(max = 40)
@@ -72,79 +73,60 @@ public class Vagas implements Serializable {
 
     public Vagas() {
     }
-
     public Vagas(Integer id) {
         this.id = id;
     }
-
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
     public String getEmpresa() {
         return empresa;
     }
-
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
-
     public String getCidade() {
         return cidade;
     }
-
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-
     public String getCurso() {
         return curso;
     }
-
     public void setCurso(String curso) {
         this.curso = curso;
     }
-
     public String getDescricao() {
         return descricao;
     }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
     public Double getSalario() {
         return salario;
     }
-
     public void setSalario(Double salario) {
         this.salario = salario;
     }
-
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
     public Integer getTelefone() {
         return telefone;
     }
-
     public void setTelefone(Integer telefone) {
         this.telefone = telefone;
     }
-
     public Integer getIdfuncionario() {
         return idfuncionario;
     }
-
     public void setIdfuncionario(Integer idfuncionario) {
         this.idfuncionario = idfuncionario;
     }

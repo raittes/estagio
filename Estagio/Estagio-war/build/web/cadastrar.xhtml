@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Cadastrar novo usuário</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table border="0">
+                <th colspan="2">Cadastrao de Funcionario</th>
+                <th colspan="2"><h:outputText value="Id: #{funcionariosMBean.listaFuncionarios.size()}"/></th>
+                <tr>
+                    <td><h:outputText value="Nome"/></td>
+                    <td><h:inputText id="nome" value="#{funcionariosMBean.func.nome}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Senha"/></td>
+                    <td><h:inputText id="senha" value="#{funcionariosMBean.func.senha}"/></td>             
+                </tr>
+                <tr>
+                    <td><h:outputText value="Empresa"/></td>
+                    <td><h:inputText id="empresa" value="#{funcionariosMBean.func.empresa}"/></td>
+                </tr>
+
+            </table>
+
+            <h:commandButton id="voltar" action="login" value="Voltar"/>
+            <h:commandButton id="cadastrar" action="#{funcionariosMBean.cadastrar}" value="Cadastrar"/>
+        </h:form>
+    </h:body>
+</html>
+
