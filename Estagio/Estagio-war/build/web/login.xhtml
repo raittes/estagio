@@ -12,12 +12,12 @@
                 <h:form>
                     Login:                    
                     <h:inputText id="login" size="19" maxlength="19"
-                                 value="#{LoginBean.login}" /> <br/>
+                                 value="#{sessaoMBean.login}" /> <br/>
                     Senha:
                     <h:inputSecret id="senha" size="20" maxlength="20"
-                                 value="#{LoginBean.senha}" />
+                                 value="#{sessaoMBean.senha}" />
                     <br/>
-                    <h:commandButton id="logar" value="Fazer Login" action="#{sessaoMBean.logar(funcionariosMBean.checaLogin(LoginBean.login, LoginBean.senha))}" />
+                    <h:commandButton id="logar" value="Fazer Login" action="#{sessaoMBean.logar(funcionariosMBean.checaLogin(sessaoMBean.login, sessaoMBean.senha))}" />
                     <h:commandButton id="cadastrar" value="Cadastrar Usuario" action="cadastrar" />
                     <br/><h:commandButton id="voltar" value="Voltar" action="index" />
                 </h:form>

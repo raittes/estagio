@@ -38,6 +38,7 @@ public class VagasFachada implements VagasFachadaLocal {
     public void persist(Object object) {
             em.flush();
         em.persist(object);
+        em.flush();
     }
     public void update(Object object) {
             em.flush();
